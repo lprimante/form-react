@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import FormularioCadastro from './paginas/FormularioCadastro';
+import Cadastro from './paginas/Cadastro';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<FormularioCadastro />, document.getElementById('root'));
+import './index.css';
+
+ReactDOM.render(<Cadastro />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

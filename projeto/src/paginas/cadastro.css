@@ -1,0 +1,13 @@
+main {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+section {
+	background: linear-gradient(126.54deg, #834FC6 0%, #F7D9BB 100%);
+	width: 60vw;
+	height: 80vh;
+}
