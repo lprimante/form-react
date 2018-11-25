@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Cadastro from './paginas/Cadastro'
 import Home from './paginas/Home'
 import Navbar from './componentes/nav/Nav'

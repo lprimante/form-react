@@ -32,18 +32,11 @@ class PessoaFisica extends React.Component  {
     }
 
     handleChange = (nomeDoInput, valorDoInput, erro = '') => {
-        console.log(this.state, 'state antes')
-
-        console.log('nomeDoInput: ', nomeDoInput)
-        console.log('valorDoInput: ', valorDoInput)
-        console.log('erro: ', erro)
         const erroDoInput = erro
-        this.setState({ [nomeDoInput]: { valor: valorDoInput, erro: erroDoInput } })
-
-        console.log(this.state, 'state depois')
+        this.setState({ [nomeDoInput]: { valor: valorDoInput, erro: erroDoInput } })   
     }
 
-    estaDesabilitado() {
+    estaDesabilitado = () => {
         return !this.state.nome.valor ||
                 this.state.nome.erro ||
                !this.state.cpf.valor ||
@@ -56,12 +49,32 @@ class PessoaFisica extends React.Component  {
                 this.state.senha.erro
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+
+        const novoUsuario = {
+            nome: this.state.nome.valor,
+            cpf: this.state.cpf.valor,
+            dataNascimento: this.state.dataNascimento.valor,
+            email: this.state.email.valor,
+            senha: this.state.senha.valor
+        }
+
+        const estaDesabilitado = this.estaDesabilitado()
+
+        if(!estaDesabilitado) {
+            //envia novoUsuario para API
+            console.log(novoUsuario)
+        }
+    }
 
     render() {
+        const estaDesabilitado = this.estaDesabilitado()
+
         return (
             <div className='pagina'>
                 <h2>Cadastro Pessoa Fisica </h2>
-                <form className='formulario'>
+                <form className='formulario' onSubmit={this.handleSubmit}>
                     <Grupo erro={this.state.nome.erro}>
                         <Grupo.Legenda htmlFor='nome' > Nome Completo:</Grupo.Legenda>
                         <Grupo.CaixaTexto 
@@ -118,7 +131,7 @@ class PessoaFisica extends React.Component  {
                             onChange={this.handleChange}
                         />
                     </Grupo>
-                    <Botao desabilitado={this.state.desabilitado} value={'final'} onClick={this.props.onClick} className='botao'>Enviar</Botao>
+                    <Botao desabilitado={estaDesabilitado} value={'final'} onClick={this.props.onClick} className='botao'>Enviar</Botao>
                 </form>
             </div>
         )

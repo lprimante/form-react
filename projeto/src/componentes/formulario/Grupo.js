@@ -8,7 +8,7 @@ function Grupo(props) {
         <div>
             {props.children}
             {props.erro && (
-                <p>
+                <p className='grupo__erro'>
                     {props.erro}
                 </p>
             )}
