@@ -3,6 +3,7 @@ import Inicial from './inicial/Inicial'
 import PessoaFisica from './pessoaFisica/PessoaFisica'
 import PessoaJuridica from './pessoaJuridica/PessoaJuridica'
 import Final from './final/Final'
+import './cadastro.css'
 
 export default class Cadastro extends Component {
     constructor(props) {
@@ -23,11 +24,9 @@ export default class Cadastro extends Component {
         })
     }
 
-    
-
     render() {
         return (
-            <div>
+            <div className='cadastro'>
                 {
                     this.state.conteudo === undefined &&
                     <Inicial onClick={this.handleClick}/>  
